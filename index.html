@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brincando com o Alfabeto</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>BRINCANDO COM O ALFABETO</h1>
+
+    <p class="hint">Neste jogo de alfabetização, você deve escolher uma letra — clicando nela ou usando o botão “Sortear letra”. 
+        Quando letra é selecionada, escreva uma palavra que comece com aquela letra. 
+        Continue até utilizar todas as letras disponíveis. 
+        Se quiser recomeçar, basta clicar no botão “Reiniciar” para limpar tudo e exibir as letras novamente.</p>
+
+    <h2>Escolha ou sorteie uma letra</h2>
+
+    <section class="letters-box">
+      <div class="letters-title">Letras</div>
+      <div id="letters" class="letters-row">
+        <!-- Letras inseridas via JS -->
+      </div>
+       
+    </section>
+
+    <button id="btn-random" class="random-btn">Sortear letra</button>
+
+    <section class="grid">
+  <!-- Geração dinâmica opcional, mas aqui vai estático para facilitar -->
+  <script>
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+    document.write(
+      letters
+        .map(
+          (l) => `
+            <div class="card">
+              <div class="card-header">${l}</div>
+              <input id="input-${l}" type="text" placeholder="Digite uma palavra com ${l}" />
+            </div>`
+        )
+        .join("")
+    );
+  </script>
+</section>
+
+    <button id="btn-reset" class="reset-btn">Reiniciar</button>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
